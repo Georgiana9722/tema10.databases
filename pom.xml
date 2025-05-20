@@ -4,8 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <dependency>
+        <groupId> org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>17.4.1</version>
+    </dependency>
+
     <groupId>org.example</groupId>
-    <artifactId>tema10.databases</artifactId>
+    <artifactId>tema.databasesassignment</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -13,5 +19,5 @@
         <maven.compiler.target>23</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
+
 </project>
