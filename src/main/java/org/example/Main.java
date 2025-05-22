@@ -1,17 +1,25 @@
 package org.example;
+import java.sql.*;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        String url = "jdbc:postgresql://localhost:5432/postgres";
+        String user = "postgres";
+        String password = "6ea21ee164f6ef7423e8a2f8f4e2f4a8";
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            Booking test = new Booking(conn);
+
+
+            test.insertAccommodation(1, "House", "Double", 3, "Sea View");
+            test.insertRoomFair(1, 150.0, "Autumn");
+            test.insertRelation(1, 1, 1);
+
+            test.printRoomPrices();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
+
